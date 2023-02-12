@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>聊天室</title>
+</head>
+
+<body>
+	<div>
+		<div> 输入框：<input type="text" id="text"> <button id="btn">发送</button> </div>
+		<div id="msg" class="msg"></div>
+	</div>
+
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+		// 发送消息
+		var btn = document.getElementById("btn");
+		btn.onclick = function() {
+			let text = document.getElementById("text").value;
+			console.log(text);
+			socket.send(text);
+		}
+
+		// websocket握手
+		var socket = new WebSocket("ws://localhost:8081/ws");
+		// 将服务端数据添加到消息框
+		socket.onmessage = function (evt) {
+			var received_msg = evt.data;
+			$("#msg").append(received_msg + '<br>');
+		};
+		// 关闭 websocket
+		socket.onclose = function () {
+			console.log("连接已关闭...");
+		};
+	</script>
+
+	<style>
+		.msg {
+			overflow: auto;
+			overflow-anchor: none;
+			width: 400px;
+			height: 300px;
+		}
+	</style>
+</body>
