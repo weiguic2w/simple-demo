@@ -44,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**").authenticated()//访问/r开始的请求需要认证通过
                 .anyRequest().permitAll()//其它请求全部放行
                 .and()
-                .formLogin().successForwardUrl("/login2");//登录成功跳转到/login-success
+                .formLogin().loginProcessingUrl("/login");//登录成功跳转到/login-success
         http.logout().logoutUrl("/logout");//退出地址
     }
 

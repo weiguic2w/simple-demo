@@ -8,6 +8,7 @@
         <module>springwebsocket-demo</module>
         <module>springsecurity-demo</module>
         <module>springsecurity-demo/content</module>
+        <module>satoken-demo</module>
     </modules>
 
     <groupId>org.example</groupId>
@@ -36,11 +37,19 @@
         <okhttp.version>4.8.1</okhttp.version>
         <swagger-spring-boot-starter.version>1.9.0.RELEASE</swagger-spring-boot-starter.version>
         <elasticsearch.version>7.12.1</elasticsearch.version>
+        <satoken.version>1.34.0</satoken.version>
     </properties>
 
 
     <dependencyManagement>
         <dependencies>
+            <!-- Sa-Token 权限认证，在线文档：https://sa-token.cc -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot-starter</artifactId>
+                <version>${satoken.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
