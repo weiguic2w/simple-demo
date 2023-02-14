@@ -1,0 +1,7 @@
+sa-token:
+  # jwt秘钥
+  jwt-secret-key: asdasdasifhueuiwyurfewbfjsdafjk
+
+
+server:
+  port: 8081

@@ -1,0 +1,13 @@
+#### 注销
+GET http://localhost:8081/auth/logout
+
+#### 登录
+GET http://localhost:8081/auth/login
+#### 是否登陆
+GET http://localhost:8081/auth/isLogin
+#### 白名单访问
+GET http://localhost:8081/auth/writeUrl
+#### 白名单注解标注
+GET http://localhost:8081/auth/annotation
+
+
